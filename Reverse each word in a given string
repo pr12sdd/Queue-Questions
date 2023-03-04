@@ -1,0 +1,30 @@
+string reverseWords (string s)
+    {  stack<char> m;
+       string k="";
+       string g="";
+       for(int i=0;i<s.size();i++)
+       {
+          if(s[i]=='.')
+          { //string g="";
+           while(!m.empty())
+           {
+               g=g+m.top();
+               m.pop();
+           }
+           k=k+g;
+           g="";
+           k=k+".";
+          }
+          else
+          {
+              m.push(s[i]);
+          }
+       }
+       while(!m.empty())
+           {
+               g=g+m.top();
+               m.pop();
+           }
+       k=k+g;
+       return k;
+    }
