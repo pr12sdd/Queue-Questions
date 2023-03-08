@@ -1,0 +1,28 @@
+void MyQueue:: push(int x)
+{   if(front!=NULL && rear!=NULL)
+    {QueueNode *t=(QueueNode*)malloc(sizeof(QueueNode));
+    t->data=x;
+    t->next=NULL;
+    rear->next=t;
+    rear=t;  }
+    else
+    {
+    QueueNode *t=(QueueNode*)malloc(sizeof(QueueNode));
+    t->data=x;
+    t->next=NULL;
+    rear=t;
+    front=t;
+    }
+}
+
+int MyQueue :: pop()
+{   if(front==NULL)
+    {
+        return -1;
+    }
+    QueueNode *temp=front;
+    front=front->next;
+    int x=temp->data;
+    delete(temp);
+    return x;
+}
